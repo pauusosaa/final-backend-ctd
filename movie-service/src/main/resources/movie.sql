@@ -1,0 +1,2 @@
+INSERT INTO movie (name, genre, url_steam) VALUES ("El planeta del tesoro", "ciencia ficción", "ejemplodeurl.com");
+INSERT INTO movie (name, genre, url_steam) VALUES ("Grandes heroes", "ciencia ficción", "ejemplodeurl.com")

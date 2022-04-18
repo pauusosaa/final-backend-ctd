@@ -1,0 +1,17 @@
+#nombre del servicio y lugar donde el servidor va a buscar las configuraciones
+#por eso creamos la carpeta config (donde estan las configuraciones centralizadas)
+#pero podria estar en git
+
+spring:
+  application:
+    name: configuration-service
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+
+
+#servidor por defecto para config server
+server:
+  port: 8888
