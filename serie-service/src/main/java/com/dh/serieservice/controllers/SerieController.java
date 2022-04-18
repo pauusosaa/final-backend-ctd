@@ -15,10 +15,10 @@ public class SerieController {
     @Autowired
     ISerieService serieService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getOne(@PathVariable String id){
+    @GetMapping("/{genre}")
+    public ResponseEntity<?> getSerieByGenre(@PathVariable String genre){
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(serieService.findById(id));
+            return ResponseEntity.status(HttpStatus.OK).body(serieService.findSerieByGenre(genre));
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
         }

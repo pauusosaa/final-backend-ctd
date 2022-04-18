@@ -1,4 +1,4 @@
-package com.dh.serieservice.document;
+package com.dh.catalogservice.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,16 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-
-@Document (collection = "series")
+@Document (collection = "seasons")
 @Getter @Setter
-public class Serie {
+public class Season {
 
     @Id
     public String id;
-    public String name;
-    public String genre;
-    public List<Season> season;
-
-
+    public int seasonNumber;
+    public List<Chapter> chapters;
 }

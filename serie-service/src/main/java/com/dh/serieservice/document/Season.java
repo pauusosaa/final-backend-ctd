@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.util.List;
 
-@Document (collection = "Season")
+@Document (collection = "seasons")
 @Getter @Setter
 public class Season {
 

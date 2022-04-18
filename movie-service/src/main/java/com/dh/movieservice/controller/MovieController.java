@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/movies")
 public class MovieController {
@@ -22,4 +24,7 @@ public class MovieController {
 	public Movie getMovieDetails(@PathVariable Integer id) {
 		return movieService.getMovieDetails(id);
 	}
+
+	@GetMapping("/{genre}")
+	public List<Movie> getMovieByGenre(@PathVariable String genre){ return  movieService.getMovieByGenre(genre);}
 }

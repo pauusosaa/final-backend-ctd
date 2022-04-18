@@ -1,5 +1,6 @@
-package com.dh.serieservice.document;
+package com.dh.catalogservice.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -7,16 +8,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-
-@Document (collection = "series")
+@Document(collection = "Catalog")
+@Builder
 @Getter @Setter
-public class Serie {
+public class Catalog {
 
     @Id
     public String id;
-    public String name;
     public String genre;
-    public List<Season> season;
-
+    public List<Movie> movies;
+    public List<Serie> series;
 
 }

@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 
-@Document (collection = "Chapter")
+@Document (collection = "chapters")
 @Getter @Setter
 public class Chapter {
 
