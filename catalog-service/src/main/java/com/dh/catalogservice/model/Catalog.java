@@ -14,9 +14,9 @@ import java.util.List;
 public class Catalog {
 
     @Id
-    public String id;
-    public String genre;
-    public List<Movie> movies;
-    public List<Serie> series;
+    private String id;
+    private String genre;
+    private List<Movie> movies;
+    private List<Serie> series;
 
 }

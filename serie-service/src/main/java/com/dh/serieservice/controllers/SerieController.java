@@ -25,9 +25,9 @@ public class SerieController {
     }
 
     @PostMapping("")
-    public ResponseEntity<?> save(@RequestBody Serie pacienteDTO){
+    public ResponseEntity<?> save(@RequestBody Serie serie){
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(serieService.save(pacienteDTO));
+            return ResponseEntity.status(HttpStatus.OK).body(serieService.save(serie));
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
         }

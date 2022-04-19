@@ -12,7 +12,7 @@ import java.util.List;
 public class Season {
 
     @Id
-    public String id;
-    public int seasonNumber;
-    public List<Chapter> chapters;
+    private String id;
+    private int seasonNumber;
+    private List<Chapter> chapters;
 }

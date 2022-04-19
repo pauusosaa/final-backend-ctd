@@ -2,6 +2,7 @@ package com.dh.serieservice.document;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -10,10 +11,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter @Setter
 public class Chapter {
 
-    public String id;
-    public String name;
-    public int number;
-    public String urlStream;
+    @Id
+    private String id;
+    private String name;
+    private int number;
+    private String urlStream;
 
 
 

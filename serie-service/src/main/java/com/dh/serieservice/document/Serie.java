@@ -13,10 +13,10 @@ import java.util.List;
 public class Serie {
 
     @Id
-    public String id;
-    public String name;
-    public String genre;
-    public List<Season> season;
+    private String id;
+    private String name;
+    private String genre;
+    private List<Season> season;
 
 
 }

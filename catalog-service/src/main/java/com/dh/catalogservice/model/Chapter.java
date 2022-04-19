@@ -10,8 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Chapter {
 
     @Id
-    public String id;
-    public String name;
-    public int number;
-    public String urlStream;
+    private String id;
+    private String name;
+    private int number;
+    private String urlStream;
 }

@@ -5,8 +5,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
+
 import java.util.List;
 
 @Document (collection = "seasons")
@@ -14,8 +14,8 @@ import java.util.List;
 public class Season {
 
     @Id
-    public String id;
-    public int seasonNumber;
-    public List<Chapter> chapters;
+    private String id;
+    private int seasonNumber;
+    private List<Chapter> chapters;
 
 }
