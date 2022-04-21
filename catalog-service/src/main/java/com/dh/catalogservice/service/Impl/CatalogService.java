@@ -6,13 +6,18 @@ import com.dh.catalogservice.model.Serie;
 import com.dh.catalogservice.repository.CatalogRepository;
 import com.dh.catalogservice.repository.feign.MovieFeignRepository;
 import com.dh.catalogservice.repository.feign.SerieFeignRepository;
+import com.dh.catalogservice.service.ICatalogService;
+import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CatalogService {
+public class CatalogService implements ICatalogService {
 
     @Autowired
     CatalogRepository catalogRepository;
@@ -23,6 +28,10 @@ public class CatalogService {
     @Autowired
     SerieFeignRepository serieFeignRepository;
 
+
+    @Override
+    @CircuitBreaker( name = "catalog", fallbackMethod = "findAllEmpty")
+    @Retry(name = "catalog")
     public Catalog getCatalogByGenre(String genre){
         List<Movie> movies = movieFeignRepository.getMovieByGenre(genre);
         List<Serie> series = serieFeignRepository.getSerieByGenre(genre);
@@ -31,5 +40,12 @@ public class CatalogService {
                 .series(series)
                 .build();
 
+    }
+
+    private Catalog findAllEmpty(CallNotPermittedException ex){
+        return Catalog.builder()
+                .movies(new ArrayList<>())
+                .series(new ArrayList<>())
+                .build();
     }
 }

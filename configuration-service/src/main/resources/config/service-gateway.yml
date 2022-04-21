@@ -8,10 +8,10 @@ spring:
           enabled: false
           lower-case-service-id: true
       routes:
-        - id: series-service-route
-            uri: lb://serie-service
+        - id: catalog-service
+            uri: lb://catalog-service-route
             predicates:
-              - Path=/series/**
+              - Path=/catalog/**
 
 server:
   port: 8080

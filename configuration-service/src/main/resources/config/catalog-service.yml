@@ -13,3 +13,24 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   instance:
     preferIpAddress: true
+
+
+#Configuracion del circuit breaker
+resilience4j:
+  circuitbreaker:
+    instances:
+      catalog:
+        slidingWindowType: COUNT_BASED
+        waitDurationInOpenState: 15000
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        registerHealthIndicator: true
+        allowHealthIndicatorToFail: false
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        permittedNumberOfCallsInHalfOpenState: 3
+  retry:
+    instances:
+      catalog:
+        maxAttempts: 3
+        waitDuration: 1000
+        retryExceptions[0]: feign.FeignException$InternalServerError
