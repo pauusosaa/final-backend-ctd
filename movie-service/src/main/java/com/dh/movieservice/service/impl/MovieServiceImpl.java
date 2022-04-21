@@ -24,4 +24,9 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public List<Movie> getMovieByGenre(String genre){ return  movieRepository.getMovieByGenre(genre);}
+
+	@Override
+	public Movie save(Movie movie) {
+		return movieRepository.save(movie);
+	}
 }

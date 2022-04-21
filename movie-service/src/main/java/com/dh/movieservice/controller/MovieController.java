@@ -3,10 +3,8 @@ package com.dh.movieservice.controller;
 import com.dh.movieservice.model.Movie;
 import com.dh.movieservice.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +16,11 @@ public class MovieController {
 	@Autowired
 	public MovieController(MovieService movieService) {
 		this.movieService = movieService;
+	}
+
+	@PostMapping("")
+	public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
+		return ResponseEntity.ok().body(movieService.save(movie));
 	}
 
 	@GetMapping("/{id}")
