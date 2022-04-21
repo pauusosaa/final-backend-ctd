@@ -12,6 +12,10 @@ spring:
             uri: lb://catalog-service-route
             predicates:
               - Path=/catalog/**
+        - id: serie-service
+            uri: lb://serie-service-route
+            predicates:
+              - Path=/series/**
 
 server:
   port: 8080

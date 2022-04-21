@@ -35,17 +35,26 @@ public class CatalogService implements ICatalogService {
     public Catalog getCatalogByGenre(String genre){
         List<Movie> movies = movieFeignRepository.getMovieByGenre(genre);
         List<Serie> series = serieFeignRepository.getSerieByGenre(genre);
-        return Catalog.builder()
+        Catalog catalogo =  Catalog.builder()
+                .genre(genre)
                 .movies(movies)
                 .series(series)
                 .build();
 
+        guardarCatalogo(catalogo);
+        return catalogo;
+
     }
 
+    //se devuelve un catalogo vacio
     private Catalog findAllEmpty(CallNotPermittedException ex){
         return Catalog.builder()
                 .movies(new ArrayList<>())
                 .series(new ArrayList<>())
                 .build();
+    }
+
+    private void guardarCatalogo(Catalog catalog){
+        catalogRepository.save(catalog);
     }
 }
