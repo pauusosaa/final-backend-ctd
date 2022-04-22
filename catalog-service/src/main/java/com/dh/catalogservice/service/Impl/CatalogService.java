@@ -40,6 +40,7 @@ public class CatalogService implements ICatalogService {
                 .movies(movies)
                 .series(series)
                 .build();
+        guardarCatalogo(catalogo);
         return catalogo;
 
     }
@@ -52,4 +53,7 @@ public class CatalogService implements ICatalogService {
                 .build();
     }
 
+    private void guardarCatalogo(Catalog catalog){
+        catalogRepository.save(catalog);
+    }
 }
