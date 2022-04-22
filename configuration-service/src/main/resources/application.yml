@@ -8,9 +8,8 @@ spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/config
-
+        git:
+          uri: https://github.com/pauusosaa/config-final-back.git
 
 #servidor por defecto para config server
 server:
