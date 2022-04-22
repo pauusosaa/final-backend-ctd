@@ -13,6 +13,14 @@ spring:
     deferDatasourceInitialization: true
     hibernate:
       ddlAuto: create-drop
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+  zipkin:
+    base-url: http://localhost:9411/
+    enabled: true
 
 server:
   port: 8081
@@ -25,3 +33,8 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   instance:
     preferIpAddress: true
+
+
+queue:
+  movie:
+    name: MovieQueue

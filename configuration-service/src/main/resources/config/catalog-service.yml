@@ -1,6 +1,11 @@
 spring:
   application:
     name: catalog-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: test
 
 server:
   port: 8083
@@ -34,3 +39,9 @@ resilience4j:
         maxAttempts: 3
         waitDuration: 1000
         retryExceptions[0]: feign.FeignException$InternalServerError
+
+queue:
+  serie:
+    name: SerieQueue
+  movie:
+    name: MovieQueue
